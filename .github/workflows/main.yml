@@ -29,6 +29,10 @@ jobs:
         run: npm install
         working-directory: ./backend
 
+      - name: Link Vercel Project
+        run: npx vercel link --project deployment-vercel --token TZzYxkUyZbouMdKwHigvrVVs --yes
+        working-directory: ./backend
+
       - name: Deploy to Vercel
         run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
         working-directory: ./backend
@@ -39,4 +43,4 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          npx vercel env add API_KEY production --token TZzYxkUyZbouMdKwHigvrVVs --yes
+          npx vercel env add API_KEY production dummyAPIKey12345 --token TZzYxkUyZbouMdKwHigvrVVs --yes
