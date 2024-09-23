@@ -30,7 +30,7 @@ jobs:
         working-directory: ./backend
 
       - name: Deploy to Vercel
-        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --confirm
+        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
         working-directory: ./backend
         env:
           VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
