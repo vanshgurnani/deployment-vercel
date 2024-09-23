@@ -34,3 +34,4 @@ jobs:
         working-directory: ./backend
         env:
           VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
+          VERCEL_ORG_ID: team_KHHemYE0nqxB0Roww0tcclst
