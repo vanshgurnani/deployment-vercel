@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main  # Deploy on push to main branch
+    paths-ignore:
+      - 'build/**'
+      - 'dist/**'
+      - 'public/**'
+      - 'logs/**'
+      - '*.log'
 
 jobs:
   deploy:
