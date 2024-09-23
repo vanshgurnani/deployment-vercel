@@ -30,13 +30,13 @@ jobs:
         working-directory: ./backend
 
       - name: Deploy to Vercel
-        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes \
-          --env VERCEL_PROJECT_ID=prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC \
-          --env VERCEL_ORG_ID=team_KHHemYE0nqxB0Roww0tcclst \
-          --env MONGO_URI=mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
-          
+        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
         working-directory: ./backend
         env:
           VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
           VERCEL_ORG_ID: team_KHHemYE0nqxB0Roww0tcclst
           MONGO_URI: mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
+
+      - name: Set Environment Variables
+        run: |
+          npx vercel env add API_KEY production --token TZzYxkUyZbouMdKwHigvrVVs --yes
