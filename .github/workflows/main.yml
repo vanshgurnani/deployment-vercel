@@ -29,6 +29,18 @@ jobs:
         run: npm install
         working-directory: ./backend
 
+      - name: Link Vercel Project
+        run: |
+          if [ ! -d ".vercel" ]; then
+            npx vercel link --token TZzYxkUyZbouMdKwHigvrVVs --yes
+          else
+            echo "Project is already linked."
+          fi
+
+      - name: Set Environment Variables
+        run: |
+          npx vercel env add API_KEY production --token TZzYxkUyZbouMdKwHigvrVVs --yes
+
       - name: Deploy to Vercel
         run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
         working-directory: ./backend
@@ -36,7 +48,3 @@ jobs:
           VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
           VERCEL_ORG_ID: team_KHHemYE0nqxB0Roww0tcclst
           MONGO_URI: mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
-
-      - name: Set Environment Variables
-        run: |
-          npx vercel env add API_KEY production --token TZzYxkUyZbouMdKwHigvrVVs --yes
