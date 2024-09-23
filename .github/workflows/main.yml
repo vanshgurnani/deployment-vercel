@@ -16,12 +16,6 @@ jobs:
     name: Deploy Project to Vercel
     runs-on: ubuntu-latest
 
-    env:  # Define environment variables at the job level
-      VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
-      VERCEL_ORG_ID: team_KHHemYE0nqxB0Roww0tcclst
-      MONGO_URI: mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
-      VERCEL_TOKEN: TZzYxkUyZbouMdKwHigvrVVs  # Ideally use secrets for sensitive info
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -36,7 +30,11 @@ jobs:
         working-directory: ./backend
 
       - name: Deploy to Vercel
-        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
+        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes \
+          --env VERCEL_PROJECT_ID=prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC \
+          --env VERCEL_ORG_ID=team_KHHemYE0nqxB0Roww0tcclst \
+          --env MONGO_URI=mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
+          
         working-directory: ./backend
         env:
           VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
