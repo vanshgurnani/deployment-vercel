@@ -39,6 +39,4 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          npx vercel env add API_KEY production --value "dummyAPIKey12345"
-        env:
-          VERCEL_TOKEN: TZzYxkUyZbouMdKwHigvrVVs
+          npx vercel env add API_KEY production --value "dummyAPIKey12345" --token TZzYxkUyZbouMdKwHigvrVVs --yes
