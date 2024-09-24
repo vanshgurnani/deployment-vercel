@@ -33,6 +33,6 @@ jobs:
         run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
         working-directory: ./backend
         env:
-          VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
+          VERCEL_PROJECT_ID: prj_sXTWNR6QrPdosGLWtnQVsRt1HlgN
           VERCEL_ORG_ID: team_KHHemYE0nqxB0Roww0tcclst
-          MONGO_URI: mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
+          MONGO_URI: mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk-prod?retryWrites=true&w=majority
