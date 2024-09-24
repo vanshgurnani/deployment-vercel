@@ -1,0 +1,38 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - prod  # Deploy on push to main branch
+    paths-ignore:
+      - 'build/**'
+      - 'dist/**'
+      - 'public/**'
+      - 'logs/**'
+      - '*.log'
+
+jobs:
+  deploy:
+    name: Deploy Project to Vercel
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./backend
+
+      - name: Deploy to Vercel
+        run: npx vercel --prod --token TZzYxkUyZbouMdKwHigvrVVs --yes
+        working-directory: ./backend
+        env:
+          VERCEL_PROJECT_ID: prj_tX8CHnBNFp4bGru6KnI5pCIkxmyC
+          VERCEL_ORG_ID: team_KHHemYE0nqxB0Roww0tcclst
+          MONGO_URI: mongodb+srv://gurnanivansh57:iz64rqtBBQss8iQ7@cluster101.nuwewcc.mongodb.net/sk?retryWrites=true&w=majority
